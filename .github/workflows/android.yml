@@ -31,4 +31,11 @@ jobs:
           distribution: 'zulu'
       - uses: gradle/gradle-build-action@v2
       - name: Build
-        run: ./gradlew app:assemble
+        run: |
+          ./gradlew build
+          echo $(pwd)
+      - uses: actions/upload-artifact@v3.1.0
+        with:
+          name: output
+          path: ./output
+        
